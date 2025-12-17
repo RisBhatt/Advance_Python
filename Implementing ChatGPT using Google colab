@@ -1,0 +1,32 @@
+- !pip install google-generativeai
+- !pip install --upgrade openai
+
+- from openai import OpenAI
+
+client = OpenAI(api_key="sk-xxxxxxxxxxxxxxxxxxxx")
+
+print("Connected successfully")
+
+- import os
+os.environ["OPENAI_API_KEY"] = "Your API key"
+
+- from openai import OpenAI
+client = OpenAI()
+
+- from openai import OpenAI
+
+client = OpenAI()
+
+print("ChatGPT AI — type 'exit' to quit\n")
+
+while True:
+    user_input = input("You: ")
+    if user_input.lower() in ["exit", "quit"]:
+        break
+
+    response = client.responses.create(
+        model="gpt-4.1-mini",
+        input=user_input
+    )
+
+    print("AI:", response.output_text)
